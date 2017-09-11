@@ -8,6 +8,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
@@ -52,10 +53,10 @@ public class PoiService {
 		}
 	}
 
-	@POST
+	@GET
 	@Path("/listarPOIs")
 	@Produces("application/json")
-	public List<String> listarPOIs(int x, int y, int d_max) {
+	public List<String> listarPOIs(@PathParam("x") int x, @PathParam("y") int y, @PathParam("d_max") int d_max) {
 		List<String> poiModels2 = new ArrayList<String>();
 		List<PoiModel> poiModels = null;
 

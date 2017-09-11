@@ -14,7 +14,6 @@ public class PoiTeste {
 
 	@Test
 	public void testCadastrar() {
-
 		poiModel.setNome("Lanchonete");
 		poiModel.setX(27);
 		poiModel.setY(12);
