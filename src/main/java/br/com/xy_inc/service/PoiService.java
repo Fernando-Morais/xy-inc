@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
@@ -52,11 +53,11 @@ public class PoiService {
 		}
 	}
 
-	@POST
+	@GET
 	@Path("/listarPOIs")
 	@Produces("application/json")
-	public List<String> listarPOIs(int x, int y, int d_max) {
-		List<String> poiModels2 = new ArrayList<String>();
+	public List<PoiModel> listarPOIs(@QueryParam("x") int x, @QueryParam("y") int y, @QueryParam("d_max") int d_max) {
+		List<PoiModel> poiModels2 = new ArrayList<PoiModel>(); 
 		List<PoiModel> poiModels = null;
 
 		try {
@@ -76,7 +77,7 @@ public class PoiService {
 				result2 = aux2 - y;
 
 				if ((result <= d_max) && (result2 <= d_max)) {
-					poiModels2.add(poi.getNome());
+					poiModels2.add(poi);
 				}
 			}
 			return poiModels2;

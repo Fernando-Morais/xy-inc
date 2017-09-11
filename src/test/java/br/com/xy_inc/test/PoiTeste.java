@@ -14,7 +14,6 @@ public class PoiTeste {
 
 	@Test
 	public void testCadastrar() {
-
 		poiModel.setNome("Lanchonete");
 		poiModel.setX(27);
 		poiModel.setY(12);
@@ -34,9 +33,9 @@ public class PoiTeste {
 
 	@Test
 	public void testListarPOIs() {
-		List<String> poiModels = poiService.listarPOIs(20, 10, 10);
+		List<PoiModel> poiModels = poiService.listarPOIs(20, 10, 10);
 		if (poiModels.size() != 0) {
-			for (String poi : poiModels) {
+			for (PoiModel poi : poiModels) {
 				System.out.println(poi);
 			}
 		}
