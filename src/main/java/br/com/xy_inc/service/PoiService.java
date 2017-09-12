@@ -64,7 +64,6 @@ public class PoiService {
 			String query = "SELECT p FROM PoiModel p";
 			poiModels = objEM.createQuery(query, PoiModel.class)
 					.getResultList();
-			objEM.close();
 			int aux = 0;
 			int aux2 = 0;
 			int result = 0;
@@ -80,6 +79,7 @@ public class PoiService {
 					poiModels2.add(poi);
 				}
 			}
+			objEM.close();
 			return poiModels2;
 		} catch (Exception e) {
 			throw new WebApplicationException(500);
